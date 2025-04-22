@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf8mb4_general_ci">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>ImmobiliFourati</title>
   <meta name="author" content="Islem FOURATI">
@@ -53,7 +53,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.php">Home</a></li>
-          <li><a href="#">Nos annonces</a></li>
+          <li><a href="mesAnnonces.php">Nos annonces</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

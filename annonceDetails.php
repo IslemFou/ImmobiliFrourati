@@ -52,7 +52,7 @@ require_once "inc/header.inc.php"; // Inclusion du header
         <h1 class="mb-2 mb-lg-0">Détail de l'annonce</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.php">Acceuil</a></li>
+            <li><a href="<?= RACINE_SITE ?>index.php">Acceuil</a></li>
             <!-- <li class="current">Portfolio Details</li> -->
           </ol>
         </nav>
@@ -91,17 +91,17 @@ require_once "inc/header.inc.php"; // Inclusion du header
                   <img src="<?= RACINE_SITE . "assets/img/images/" . $advert['photo'] ?>" alt="image annonce">
                 </div>
 
-                <div class="swiper-slide">
-                  <img src="<?= RACINE_SITE . "assets/img/images/" . $advert['photo'] ?>" alt="image annonce">
+                <!-- <div class="swiper-slide">
+                  <img src="" alt="image annonce">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="<?= RACINE_SITE . "assets/img/images/" . $advert['photo'] ?>" alt="image annonce">
+                  <img src="" alt="image annonce">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="<?= RACINE_SITE . "assets/img/images/" . $advert['photo'] ?>" alt="image annonce">
-                </div>
+                  <img src="" alt="image annonce">
+                </div> -->
 
               </div>
               <div class="swiper-pagination"></div>
@@ -112,17 +112,28 @@ require_once "inc/header.inc.php"; // Inclusion du header
             <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
               <h3><?= html_entity_decode(strtoupper($advert['title'])) ?> </h3>
 
-            </div>
+            
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+              <p><i class="bi bi-geo-alt-fill"></i><?= html_entity_decode($advert['postal_code']) ?></p>
+                  <p><i class="bi bi-geo"></i><?= html_entity_decode($advert['city']) ?></p>
+                  <p>Type:<?= html_entity_decode($advert['type']) ?></p>
+                  <p class="fw-bolder">Prix:<?= html_entity_decode($advert['price']) ?>€</p>
               
             <p class="">A propos :<?= html_entity_decode($advert['description']) ?></p>
             </div>
+            <form action="#" method="POST">
+                    <input type="hidden" name="id_advert" value="<?= $advert['id_advert'] ?>">
+                    <label for="reserver">Votre message</label>
+                    <textarea class="form-control" placeholder="votre message" name="reserver" id="reserver"></textarea>
+                    <button type="submit" class="btn mt-3 text-white" style="background-color: #059652;">Réserver</button>
+                </form>
+                </div>
           </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Portfolio Details Section -->
+    </section>
     <?php
 require_once "inc/footer.inc.php";

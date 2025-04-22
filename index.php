@@ -8,7 +8,7 @@ $info = "";
 // maj de l'annonce
 
 $LimitedAdverts = showLimitedAdverts();
-$message = "Les 15 dernières annonces (";
+// $message = "Les 15 dernières annonces (";
 
 
 require_once "inc/header.inc.php"; // Inclusion du header
@@ -85,7 +85,7 @@ echo $info;
     <!-- /Stats Section -->
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
+  <section id="portfolio" class="portfolio section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -95,62 +95,62 @@ echo $info;
       </div>
       <!-- End Section Title -->
 
-      <div class="container">
-      <h2 class="fw-bolder fs-4 mx-5 text-center"><?= $message . count(showLimitedAdverts()) ?>)</h2>
+    <div class="container">
+        <h2 class="fw-bolder fs-4 mx-5 mb-2 text-center"><?= "Les " . count(showLimitedAdverts()) ?> dernières annonces</h2>
 
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
-          <!-- <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Product</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-books">Books</li>
-          </ul>End Portfolio Filters -->
+            
+            <!-- <li data-filter=".filter-product"></li>
+            <li data-filter=".filter-branding"></li> -->
+            
+          </ul>
+          <!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-        <?php
-            foreach ($LimitedAdverts as $advertLimit) :
+              <?php
+              foreach ($LimitedAdverts as $advertLimit) :
                 if (!empty($advertLimit["reservation_message"])) {
-            ?>
+                 ?>
             <!-- muted card -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product position-relative min-vh-75">
-            <p class="text-muted text-center position-absolute top-5 start-50 translate-middle p-2 bg-warning-subtle fw-bold rounded-3 z-3">Réservé !</p>
-              <img src="<?= RACINE_SITE . "assets/img/images/" . $advertLimit['photo'] ?>" class="img-fluid gris" alt="image studio">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product ">
+              <img src="<?= RACINE_SITE . "assets/img/images/" . $advertLimit['photo'] ?>" style=" width: 25rem;object-fit: cover;" class="img-fluid gris " alt="image studio">
               <div class="portfolio-info">
                 <h4><?= htmlspecialchars(html_entity_decode(strtoupper($advertLimit['title']))) ?> </h4>
-                <p><span class="fw-bolder">Description:</span> <?= substr($advertLimit['description'], 0, 90) . '...' ?><</p>
-                <a href="#" title="" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="#" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
+                <a href="#" title="more details" data-gallery="portfolio-gallery-app" class="glightbox preview-link "><i class="bi bi-zoom-in"></i></a>
+                <a href="#" title="More Details" class="details-link "><i class="bi bi-link-45deg"></i></a>
+                <div class="bg-success-subtle w-75">
+                  <p class="text-muted text-center p-2 fw-bold z-3">Réservé !</p>
+                </div>
+                </div>
             </div>
             <?php
                 } else {
                 ?>
                 <!-- non muted card -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product min-vh-75">
-              <img src="<?= RACINE_SITE . "assets/img/images/" . $advertLimit['photo'] ?>" class="img-fluid" alt="image annonce">
-              <div class="portfolio-info">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                <img src="<?= RACINE_SITE . "assets/img/images/" . $advertLimit['photo'] ?>" style=" width: 25rem; object-fit: cover;" class="img-fluid" alt="image annonce">
+                <div class="portfolio-info">
                 <h4><?= htmlspecialchars(html_entity_decode(strtoupper($advertLimit['title']))) ?> </h4>
                 <p><span class="fw-bolder">Description:</span> <?= substr($advertLimit['description'], 0, 90) . '...' ?><</p>
                 <a href="<?= RACINE_SITE . "assets/img/images/" . $advertLimit['photo'] ?>" title="<?= htmlspecialchars(html_entity_decode(strtoupper($advertLimit['title']))) ?> " data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="annonceDetails.php?id_advert=<?= $advertLimit['id_advert'] ?>" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
+                <a href="<?= RACINE_SITE ?>annonceDetails.php?id_advert=<?= $advertLimit['id_advert'] ?>" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
             </div>
             <!-- End Portfolio Item -->
-
             <?php
                 }
             endforeach;
             ?>
-
           </div>
           <!-- End Portfolio Container -->
-
         </div>
-
+        <div class="d-flex justify-content-center">
+          <a href="mesAnnonces.php" class="btn btn-secondary rounded-5 px-5 py-3 m-5 fs-5 fw-bold">Voir toutes les annonces</a>
+        </div>
       </div>
-
     </section>
     <!-- /Portfolio Section -->
 
