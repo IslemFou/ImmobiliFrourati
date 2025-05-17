@@ -3,7 +3,7 @@ session_start();
 
 // 3- les constantes
 
-define("RACINE_SITE", "http://localhost/ImmobiliFourati/");
+define("RACINE_SITE", "http://localhost/ImmobiliFrourati/");
 
 
 //---------------- fonction alert ----------------
